@@ -32,9 +32,6 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    # - name: Log in to registry
-    #   run: echo "${{ secrets.GH_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
-
     - name: Build and push Docker image
       id: docker_build
       uses: docker/build-push-action@v2
