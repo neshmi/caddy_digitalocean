@@ -26,6 +26,15 @@ jobs:
             ${{ steps.set-outputs.outputs.image }}
           tags: |
             type=ref,event=tag
+          labels: |
+            org.opencontainers.image.title=Caddy with DigitalOcean DNS
+            org.opencontainers.image.description=Custom Caddy build with DigitalOcean DNS module
+            org.opencontainers.image.authors=${{ github.actor }}
+            org.opencontainers.image.url=https://github.com/${{ github.repository }}
+            org.opencontainers.image.source=https://github.com/${{ github.repository }}
+            org.opencontainers.image.version=${{ github.ref_name }}
+            org.opencontainers.image.revision=${{ github.sha }}
+            org.opencontainers.image.created=${{ steps.meta.outputs.created }}
     outputs:
       image: ${{ steps.set-outputs.outputs.image }}
       push: ${{ steps.set-outputs.outputs.push }}
