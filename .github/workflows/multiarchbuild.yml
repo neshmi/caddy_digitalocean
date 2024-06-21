@@ -8,9 +8,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        arch: [amd64, arm64/v8, arm/v7]
 
     steps:
     - name: Checkout repository
@@ -42,8 +39,7 @@ jobs:
         context: .
         file: Dockerfile
         build-args: |
-          ARCH=${{ matrix.arch }}
           VERSION=${{ env.VERSION }}
-        platforms: linux/amd64,linux/arm64/v8,linux/arm/v7
+        platforms: linux/arm64/v8,linux/amd64,linux/arm/v7
         push: true
         tags: ghcr.io/${{ github.repository }}:${{ env.VERSION }}
