@@ -1,10 +1,9 @@
-ARG ARCH=
-ARG VERSION=
-ARG BUILD_VERSION="${VERSION}"
-FROM ${ARCH}caddy:${VERSION}-builder AS builder
+ARG ARCH
+ARG VERSION
+FROM ${ARCH}/caddy:${VERSION}-builder AS builder
 
-RUN xcaddy build "${BUILD_VERSION}" --with github.com/caddy-dns/digitalocean@master
+RUN xcaddy build "${VERSION}" --with github.com/caddy-dns/digitalocean@master
 
-FROM ${ARCH}caddy:${VERSION}
+FROM ${ARCH}/caddy:${VERSION}
 
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy
