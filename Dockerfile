@@ -1,9 +1,9 @@
-ARG ARCH
+ARG TARGETARCH
 ARG VERSION
-FROM --platform=${ARCH} caddy:${VERSION}-builder AS builder
+FROM --platform=${TARGETARCH} caddy:${VERSION}-builder AS builder
 
 RUN xcaddy build "${VERSION}" --with github.com/caddy-dns/digitalocean@master
 
-FROM --platform=${ARCH} caddy:${VERSION}
+FROM --platform=${TARGETARCH} caddy:${VERSION}
 
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy
