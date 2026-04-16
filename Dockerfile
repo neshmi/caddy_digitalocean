@@ -5,7 +5,9 @@ RUN xcaddy build "${VERSION}" \
   --with github.com/caddy-dns/digitalocean@master \
   --with github.com/protomaps/go-pmtiles/caddy \
   --with github.com/caddyserver/cache-handler \
-  --with github.com/hslatman/caddy-crowdsec-bouncer/http
+  --with github.com/hslatman/caddy-crowdsec-bouncer/http@main \
+  --with github.com/hslatman/caddy-crowdsec-bouncer/appsec@main \
+  --with github.com/hslatman/caddy-crowdsec-bouncer/layer4@main
 
 FROM caddy:${VERSION}
 

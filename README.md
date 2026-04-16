@@ -6,6 +6,8 @@ Repository to generate a Caddy Docker image with these modules baked in:
 - Cache handler (`github.com/caddyserver/cache-handler`)
 - PMTiles (`github.com/protomaps/go-pmtiles/caddy`)
 - CrowdSec HTTP bouncer (`github.com/hslatman/caddy-crowdsec-bouncer/http`)
+- CrowdSec AppSec bouncer (`github.com/hslatman/caddy-crowdsec-bouncer/appsec`)
+- CrowdSec Layer4 bouncer (`github.com/hslatman/caddy-crowdsec-bouncer/layer4`)
 
 ## Build
 
